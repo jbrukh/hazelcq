@@ -8,13 +8,17 @@ import com.hazelcast.core.IMap;
 public final class DataServer {
 
 	private IMap<Integer, String> map;
-	private final static int MAX = 100000;
+	private final static int MAX = 200000;
 	
 	public final void start() {
 		map = Hazelcast.getMap("data");
 		System.out.println("populating map...");
+		
+		long t1 = System.nanoTime();
 		populate();
-		System.out.println("done.");
+		long t2 = System.nanoTime();
+		
+		System.out.println("done." + (t2-t1)/1000000 + "ms");
 	}
 	
 	private final void populate() {

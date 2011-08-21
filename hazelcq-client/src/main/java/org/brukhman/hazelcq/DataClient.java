@@ -24,15 +24,10 @@ public final class DataClient {
 		
 		while (true) {
 			int random = new Random().nextInt(100000);
+			long t1 = System.nanoTime();
 			String data = map.get(random);
-			System.out.println("Got " + data);
-			
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			long t2 = System.nanoTime();
+			System.out.println((t2-t1));			
 		}
 	}
 	
