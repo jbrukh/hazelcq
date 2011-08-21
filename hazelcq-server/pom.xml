@@ -14,7 +14,38 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <hazelcast.config>src/main/resources/hazelcq.xml</hazelcast.config>
   </properties>
+  <build>
+    <plugins>
+    	<plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-assembly-plugin</artifactId>
+    		<version>2.2.1</version>
+		       <executions>
+		          <execution>
+		            <id>create-executable-jar</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>single</goal>
+		            </goals>
+		            <configuration>
+		              <descriptorRefs>
+		                <descriptorRef>
+		                  jar-with-dependencies
+		                </descriptorRef>
+		              </descriptorRefs>
+		              <archive>
+		                <manifest>
+		                  <mainClass>org.brukhman.hazelcq.DataServer</mainClass>
+		                </manifest>
+		              </archive>
+		           </configuration>
+		          </execution>
+		        </executions>
+  		</plugin>
+  	</plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -30,4 +61,5 @@
     	<scope>compile</scope>
     </dependency>
   </dependencies>
+
 </project>
