@@ -37,4 +37,34 @@
     	<scope>compile</scope>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+    	<plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-assembly-plugin</artifactId>
+    		<version>2.2.1</version>
+		       <executions>
+		          <execution>
+		            <id>create-executable-jar</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>single</goal>
+		            </goals>
+		            <configuration>
+		              <descriptorRefs>
+		                <descriptorRef>
+		                  jar-with-dependencies
+		                </descriptorRef>
+		              </descriptorRefs>
+		              <archive>
+		                <manifest>
+		                  <mainClass>org.brukhman.hazelcq.DataClient</mainClass>
+		                </manifest>
+		              </archive>
+		           </configuration>
+		          </execution>
+		        </executions>
+  		</plugin>
+  	</plugins>
+  </build>
 </project>
