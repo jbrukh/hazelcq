@@ -26,12 +26,12 @@ public final class DataClient {
 		System.out.println("Done in " + (t2-t1)/1000000 + "ms");
 		int count = 0;
 		while (true) {
-			int random = new Random().nextInt(5000);
+			int random = new Random().nextInt(500);
 			t1 = System.nanoTime();
-			String data = map.get(random);
+			String data = map.get(count%500);
 			t2 = System.nanoTime();
 			System.out.println(++count +", " + (t2-t1));	
-			if ( count > 10000 ) {
+			if ( count > 1000 ) {
 				break;
 			}
 		}
