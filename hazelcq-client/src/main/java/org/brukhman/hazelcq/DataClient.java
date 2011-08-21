@@ -33,10 +33,10 @@ public final class DataClient {
 		while (true) {
 	
 			t1 = System.nanoTime();
-			String data = map.get(count%5000);
+			String data = map.get(count%100000);
 			t2 = System.nanoTime();
 			System.out.println(++count +", " + (t2-t1) + ", " + data);	
-			if ( count > 10000 ) {
+			if ( count > 200000 ) {
 				break;
 			}
 		}
