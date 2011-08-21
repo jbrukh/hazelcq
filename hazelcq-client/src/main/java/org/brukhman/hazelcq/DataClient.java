@@ -18,10 +18,12 @@ public final class DataClient {
 	public final void start() {
 		HazelcastInstance hazelClient = HazelcastClient.newHazelcastClient("dev", "dev", 
 				this.clusterHost);
+		System.out.println("Getting map...");
 		IMap<Integer, String> map = hazelClient.getMap("data");
+		System.out.println("Done.");
 		
 		while (true) {
-			int random = new Random().nextInt(1000000);
+			int random = new Random().nextInt(500000);
 			String data = map.get(random);
 			System.out.println("Got " + data);
 			
