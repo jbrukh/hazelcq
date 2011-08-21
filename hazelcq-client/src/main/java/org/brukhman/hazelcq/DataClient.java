@@ -23,7 +23,7 @@ public final class DataClient {
 		System.out.println("Done.");
 		
 		while (true) {
-			int random = new Random().nextInt(500000);
+			int random = new Random().nextInt(100000);
 			String data = map.get(random);
 			System.out.println("Got " + data);
 			
