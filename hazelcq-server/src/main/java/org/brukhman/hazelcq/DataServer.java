@@ -8,7 +8,7 @@ import com.hazelcast.core.IMap;
 public final class DataServer {
 
 	private IMap<Integer, String> map;
-	private final static int MAX = 10000;
+	private final static int MAX = 1000000;
 	
 	public final void start() {
 		map = Hazelcast.getMap("data");

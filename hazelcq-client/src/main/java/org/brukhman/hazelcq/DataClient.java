@@ -21,12 +21,12 @@ public final class DataClient {
 		IMap<Integer, String> map = hazelClient.getMap("data");
 		
 		while (true) {
-			int random = new Random().nextInt(10000);
+			int random = new Random().nextInt(1000000);
 			String data = map.get(random);
 			System.out.println("Got " + data);
 			
 			try {
-				Thread.sleep(5);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
