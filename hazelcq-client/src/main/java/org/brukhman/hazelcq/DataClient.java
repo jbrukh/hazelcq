@@ -19,15 +19,21 @@ public final class DataClient {
 		HazelcastInstance hazelClient = HazelcastClient.newHazelcastClient("dev", "dev", 
 				this.clusterHost);
 		System.out.println("Getting map...");
+		long t1 = System.nanoTime();
 		IMap<Integer, String> map = hazelClient.getMap("data");
-		System.out.println("Done.");
-		
+		long t2 = System.nanoTime();
+
+		System.out.println("Done in " + (t2-t1)/1000000 + "ms");
+		int count = 0;
 		while (true) {
-			int random = new Random().nextInt(100000);
-			long t1 = System.nanoTime();
+			int random = new Random().nextInt(5000);
+			t1 = System.nanoTime();
 			String data = map.get(random);
-			long t2 = System.nanoTime();
-			System.out.println((t2-t1));			
+			t2 = System.nanoTime();
+			System.out.println(++count +", " + (t2-t1));	
+			if ( count > 10000 ) {
+				break;
+			}
 		}
 	}
 	
